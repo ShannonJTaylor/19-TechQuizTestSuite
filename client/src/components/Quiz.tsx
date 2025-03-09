@@ -33,6 +33,7 @@ const Quiz = () => {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
       setQuizCompleted(true);
+      console.log("Quiz Completed state:", true)
     }
   };
 
