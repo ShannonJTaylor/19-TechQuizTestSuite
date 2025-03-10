@@ -1,3 +1,4 @@
+
 describe('Quiz functionality with correct answers', () => {
   it('Completes the quiz with the correct score', () => {
     cy.visit('/'); // Visit the quiz page
@@ -16,7 +17,7 @@ describe('Quiz functionality with correct answers', () => {
     cy.get('.btn.btn-primary').eq(correctAnswers[3]).click(); // Last question click
 
     // Wait for the Quiz Completed page to load by checking for the visibility of the card
-    cy.get('.card.p-4.text-center', { timeout: 30000 }) // Increase timeout if necessary
+    cy.get('[data-test="quiz-result"]', { timeout: 30000 }) // Increase timeout if necessary
       .should('exist')  // Ensure the element exists in the DOM
       .should('be.visible');  // Make sure it's visible
 
