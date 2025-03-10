@@ -1,3 +1,4 @@
+
 describe('Quiz functionality with correct answers', () => {
   it('Completes the quiz with the correct score', () => {
     cy.visit('/'); // Visit the quiz page
