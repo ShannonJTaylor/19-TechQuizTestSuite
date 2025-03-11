@@ -76,43 +76,9 @@ npm run test
 ```
 This command will run both the E2E and Component tests in sequence.
 
-## Cypress Test Structure
-Cypress tests are located in the cypress folder and are divided into the following categories:
-
-End-to-End Tests: Located in cypress/e2e/.
-These tests simulate a real user interacting with the application, testing the full flow of taking the quiz.
-Component Tests: Located in cypress/component/.
-These tests focus on isolated testing of specific React components used in the quiz app.
-Project Structure
-bash
-Copy
-Edit
-TechQuizTestSuite/
-├── cypress/
-│   ├── component/
-│   │   ├── Quiz.cy.jsx
-│   └── e2e/
-│       ├── quiz.cy.js
-├── src/
-│   ├── components/
-│   │   ├── Quiz.tsx
-│   ├── pages/
-│   │   ├── QuizPage.tsx
-│   ├── services/
-│   │   ├── api.ts
-│   ├── App.tsx
-│   ├── index.tsx
-│   └── ...
-├── .env
-├── package.json
-└── README.md
-
 ## Dependencies
 ### Development Dependencies:
 Cypress: For end-to-end and component testing.
-json
-Copy
-Edit
 "devDependencies": {
   "cypress": "^10.0.0"
 }
