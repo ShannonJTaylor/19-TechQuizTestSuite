@@ -14,7 +14,6 @@ describe('Quiz Component', () => {
   
   it('should load the quiz page with "Start Quiz" button', () => {
     mount(<Quiz />);  // Render the Quiz component
-    cy.wait(3000);  // Wait for 3 seconds to keep the quiz page loaded longer
     cy.contains('Start Quiz').should('be.visible');
     });
   
@@ -22,7 +21,7 @@ describe('Quiz Component', () => {
     mount(<Quiz />);       
     // Start the quiz
     cy.contains('Start Quiz').click({ slowMo: 3500 });
-    cy.wait(3500); // Add a wait time of 5 seconds between actions 
+   
     // Wait for the question to appear
     cy.wait('@getQuestions');  //Wait for mocked API call to complete
     //cy.get('.card p-4').should('contain', 'What').or('contain', 'Which'); // Adjust based on actual question text
@@ -32,10 +31,10 @@ describe('Quiz Component', () => {
      it('should update score when answering correctly', () => {
     mount(<Quiz />);  // Mount the component  
     cy.contains('Start Quiz').click({ slowMo: 3500 });  // Start the quiz
-    cy.wait(3500); // Add a wait time between actions
+    
     cy.wait('@getQuestions');  // Wait for questions
     cy.get('.btn').eq(1).click({ slowMo: 3500 });  // clicks teh second button
-    cy.wait(3500); // Add a wait time between actions
+    
     cy.get('.alert.alert-success').should('not.exist');  // Check if success message doesn't show yet
   });
   
@@ -43,17 +42,17 @@ describe('Quiz Component', () => {
       mount(<Quiz />);  // Mount the component      
       // Start the quiz
       cy.contains('Start Quiz').click({ slowMo: 3500 });
-      cy.wait(3500); // Add a wait time between actions
+      
       cy.wait('@getQuestions');  // Wait for the mock API call  
       // Answer all questions (repeat the answer process for each question)
       cy.get('.btn').eq(1).click({ slowMo: 2000 });  // Correct answer for first question, second button
-      cy.wait(3500); // Add a wait time between actions
+      
       cy.get('.btn').eq(2).click({ slowMo: 2000 });  // Correct answer for second question, third button
-      cy.wait(3500); // Add a wait time between actions
+      
       cy.get('.btn').eq(2).click({ slowMo: 2000 });  // Correct answer for third question, third button
-      cy.wait(3500); // Add a wait time between actions
+      
       cy.get('.btn').eq(2).click({ slowMo: 2000 });  // Correct answer for fourth questiom, third button
-      cy.wait(3500); // Add a wait time between actions
+      
       // Once all questions are answered, check for the completion message
       cy.contains('Quiz Completed').should('be.visible');
       cy.get('.alert.alert-success').should('contain', 'Your score');

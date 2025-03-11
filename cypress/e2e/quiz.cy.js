@@ -10,7 +10,7 @@ describe('Quiz functionality with correct answers', () => {
     const correctAnswers = [1, 2, 2, 2, 0, 3, 1, 0, 1,3];
     correctAnswers.forEach((answerIndex) => {
       cy.get('.btn.btn-primary').eq(answerIndex).click();
-      cy.wait(500); // Wait for the next question to appear      
+      cy.wait(200); // Wait for the next question to appear      
     });
 
    
